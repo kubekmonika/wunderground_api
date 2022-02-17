@@ -1,6 +1,9 @@
 # wunderground_api
 Python script to extract historical hourly weather data from any personal weather station on Wunderground and between any two dates. The script scrapes the site and looks for the weather table to be loaded before extracting it.
 
+## Fork details
+I added the `environment.yaml` file so that the code can be used in the conda environment.
+
 ## Prerequistes
 - Python 3.6+ (for pyppeteer & asyncio)
 - [pandas](https://pandas.pydata.org/)
