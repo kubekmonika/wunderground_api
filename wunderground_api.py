@@ -3,20 +3,20 @@
 # Updated on 2021-03-05
 
 import asyncio
-import nest_asyncio 
+import nest_asyncio
 import pandas as pd
 from pyppeteer import launch
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
-native = False  # if you're using Python in Jupyter, Spyder or Anaconda environment, set native to False. If you're using Python in CLI, set native to True
+native = True  # if you're using Python in Jupyter, Spyder or Anaconda environment, set native to False. If you're using Python in CLI, set native to True
 
 if native is False:
     nest_asyncio.apply() # hot fix taken from https://medium.com/@vyshali.enukonda/how-to-get-around-runtimeerror-this-event-loop-is-already-running-3f26f67e762e
 
-start = '2021-1-1'
-end = '2021-1-5'
-station = 'KILCHICA692'
+start = '2020-1-1'
+end = '2020-12-31'
+station = 'IPOZNA123'
 
 start_dt = datetime.strptime(start, '%Y-%m-%d')
 end_dt = datetime.strptime(end, '%Y-%m-%d')
@@ -66,5 +66,5 @@ for n in range(date_delta):
     df = asyncio.get_event_loop().run_until_complete(table(url, date))
     df.to_csv('wunderground_%s.csv' % date, index=False)
     dt += timedelta(days=1)     # increment days by 1
-    
+
 print ('Done.')
